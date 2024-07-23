@@ -1,0 +1,72 @@
+<!-- unesi-novi-alat.html -->
+<div class="container">
+  
+  <form>
+    <h2>Unesi novi alat</h2>
+
+    <div class="form-group">
+        <label for="name">Naziv</label>
+        <input type="text" id="name" [(ngModel)]="tool.naziv" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="purchaseDate">Datum kupovine alata</label>
+        <input type="date" id="purchaseDate" [(ngModel)]="tool.datum_ulaza" name="purchaseDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="model" class="model-label">Model</label>
+        <input type="text" id="model" [(ngModel)]="tool.id_model" name="model" required>
+    </div>
+
+    <div class="form-group">
+        <label for="manufacturer">Proizvođač</label>
+        <select type="text" id="manufacturer" [(ngModel)]="tool.id_proizvodjac" name="manufacturer" required>
+            <option value="Bosch">Bosch</option>
+            <option value="DeWalt">DeWalt</option>
+            <option value="Makita">Makita</option>
+            <option value="Einhell">Einhell</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Kategorija</label>
+        <select type="text" id="category" [(ngModel)]="tool.id_kategorija" name="category" required>
+            <option value="kategorija A">Kategorija A</option>
+            <option value="kategorija B">Kategorija B</option>
+            <option value="kategorija C">Kategorija C</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="issuingType">Tip izdavanja</label>
+        <select id="issuingType" [(ngModel)]="tool.id_tip_izdavanja" name="issuingType" required>
+            <option value="Trajno">Trajno</option>
+            <option value="Privremeno">Privremeno</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="tool.id_status" name="status" required>
+            <option value="Izdato">Izdato</option>
+            <option value="U skladištu">U skladištu</option>
+            <option value="Servis">Servis</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="worth">Vrijednost</label>
+        <input type="number" id="worth" [(ngModel)]="tool.vrijednost" name="worth" required>
+    </div>
+
+    <div class="form-group">
+        <label for="warranty">Garancija (u godinama):</label>
+        <input type="number" id="warranty" [(ngModel)]="tool.garancija_u_godinama" name="warranty" required>
+    </div>
+    
+
+    <button type="submit" (click)="onSubmit()">Spasi</button>
+</form>
+
+</div>

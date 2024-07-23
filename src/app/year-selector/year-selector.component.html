@@ -1,0 +1,7 @@
+<!-- year-selector.component.html -->
+<div class="year-selector">
+  <label class="godina" for="yearSelect">Odaberi godinu: </label>
+  <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+  </select>
+</div>

@@ -1,0 +1,27 @@
+<div class="inputDiv">
+  <label for="nalogIdInput">Unesi Nalog ID:</label>
+  <input id="nalogIdInput" type="text" [(ngModel)]="nalogId" required>
+
+  <label for="returnDateInput">Unesi datum vraćanja:</label>
+  <input id="returnDateInput" type="date" [(ngModel)]="returnDate" required>
+
+
+  <!-- Add the button here -->
+  <button (click)="openRentalDetailsDialog()">Pogledaj detalje izdavanja</button>
+
+  <!-- Modal for displaying returned tools -->
+  <div class="modal" *ngIf="returnedToolsModalVisible">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Informacije</h2>
+      <ul>
+        <li *ngFor="let tool of returnedTools">
+          {{ tool.toolName }} - {{ tool.barcode }} (Rented by: {{ tool.workerName }}, Duration: {{ tool.rentalDuration }})
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div [@fadeOut] *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  <div [@fadeOut] *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>

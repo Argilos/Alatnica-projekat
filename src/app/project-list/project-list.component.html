@@ -1,0 +1,25 @@
+<!-- project-list.component.html -->
+
+<div class="project-list-container">
+    <h2>Projekti</h2>
+  
+    
+    <app-year-selector class="app-year-selector" style="color: black;" (yearChange)="onYearChange($event)"></app-year-selector>
+
+  
+    <div *ngIf="projects.length > 0; else noProjects">
+      <div class="project-card" *ngFor="let project of projects">
+        <div class="project-details">
+          <p><strong>Ugovor ID:</strong> {{ project.ugovor_id }}</p>
+          <p><strong>Kompanija:</strong> {{ project.kompanija }}</p>
+          <p><strong>Godina:</strong> {{ project.godina }}</p>
+          <!-- Add more details as needed -->
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noProjects>
+      <p>No projects found.</p>
+    </ng-template>
+  </div>
+  

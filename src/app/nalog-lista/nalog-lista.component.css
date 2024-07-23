@@ -1,0 +1,81 @@
+/* General styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main content container */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.nalogs-container {
+  padding-top: 20px; /* add padding to the top of the container */
+}
+
+h2 {
+  position: absolute;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: black;
+  margin-top: 10%;
+  left: 46%;
+}
+
+/* Nalogs List Styling */
+.nalogs-list {
+  position: relative;
+  
+  
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 13%; /* add some margin to the top of the <ul> element */
+}
+
+.nalogs-list li {
+  display: block;
+  margin-top: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  transition: background 0.3s;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+.nalogs-list li:hover {
+  background: #f0f0f0;
+}
+
+.nalogs-list li:active {
+  transform: translateY(1px);
+}
+
+.nalogs-list li::before {
+  content: 'Nalog ID: ';
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+ .nalogs-list li {
+    width: 100%;
+  }
+}

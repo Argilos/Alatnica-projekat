@@ -1,0 +1,13 @@
+<h1>Iznajmljeni alati za Nalog ID: {{ data.nalogId }}</h1>
+<ul>
+  <li *ngFor="let tool of rentedTools">
+    <ng-container *ngIf="!tool.returned"> <!-- Show if tool has not been returned -->
+      <input type="checkbox" [(ngModel)]="tool.selected"> <!-- Checkbox for each tool -->
+      Barcode: {{ tool.barcode }}, Status: {{ tool.status }} - <span style="color: red; margin-left:5px" >Nije vraćeno za ovaj nalog</span>
+    </ng-container>
+    <ng-container *ngIf="tool.returned"> <!-- Show if tool has been returned -->
+      Barcode: {{ tool.barcode }}, Status: {{ tool.status }} - <span style="color: green; margin-left:5px">Vraćeno za ovaj nalog</span>
+    </ng-container>
+  </li>
+</ul>
+<button (click)="returnSelectedTools()">Vrati odabrane alate</button>

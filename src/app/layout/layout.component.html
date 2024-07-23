@@ -1,0 +1,114 @@
+<div class="header">
+  <!-- <img class="logo" src="assets/logo.svg" alt="Logo"> -->
+  <div class="title">
+    <h1>ALATNICA</h1>
+    <div class="date">{{ currentDate | date:'medium' }}</div>
+  </div>
+ 
+  
+</div>
+
+<div class="background"></div>
+
+<div class="sidebar">
+  <div class="logo">
+    <img src="assets/logo.svg" alt="Logo">
+  </div>
+  <ul class="menu">
+    <li class="menu-item">
+      <a routerLink="/home">
+        <mat-icon class="material-icons">home</mat-icon>
+        <span>Početna</span> 
+      </a>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">build</mat-icon>
+        <span>Alat</span> 
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/izdajAlat"><mat-icon class="material-icons">add_box</mat-icon> Izdaj alat</a></li>
+        <li><a routerLink="/vrati-alat"><mat-icon class="material-icons">restore</mat-icon> Vrati alat</a></li>
+        <li><a routerLink="/licnaKarta"><mat-icon class="material-icons">add</mat-icon> Unesi novi alat</a></li>
+        <li><a routerLink="/nalog_list"><mat-icon class="material-icons">list</mat-icon> Lista naloga</a></li>
+        <li><a routerLink="/tools"><mat-icon class="material-icons">description</mat-icon> Lična Karta</a></li>
+        <li *ngIf="isAdmin">
+          <a routerLink="/rashoduj"><mat-icon class="material-icons">remove_circle_outline</mat-icon> Rashoduj alat</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">build_circle</mat-icon>
+        <span>Servis</span> 
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/servis"><mat-icon class="material-icons">assignment</mat-icon> Novi servisni nalog</a></li>
+        <li><a routerLink="/service-in-progress"><mat-icon class="material-icons">list_alt</mat-icon> Pregled svih servisa</a></li>
+      </ul>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">format_align_center</mat-icon>
+        <span>Baždarenje</span> 
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/bazdarenje"><mat-icon class="material-icons">assignment</mat-icon> Novo baždarenje</a></li>
+        <li><a routerLink="/bazdarenja-in-progress"><mat-icon class="material-icons">list_alt</mat-icon> Pregled baždarenja</a></li>
+      </ul>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">person</mat-icon>
+        <span>Radnik</span>
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/unesi-radnika"><mat-icon class="material-icons">add</mat-icon> Unesi radnika</a></li>
+        <li><a routerLink="/radnici"><mat-icon class="material-icons">list</mat-icon> Pregled radnika</a></li>
+      </ul>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">people</mat-icon>
+        <span>Dobavljači</span>
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/unesi_dobavljaca"><mat-icon class="material-icons">add</mat-icon> Unesi dobavljača</a></li>
+        <li><a routerLink="/pregled_dobavljaca"><mat-icon class="material-icons">list</mat-icon> Pregled dobavljača</a></li>
+      </ul>
+    </li>
+   
+   
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">business_center</mat-icon>
+        <span>Projekti</span> 
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/project-list">Lista projekata</a></li>
+        <li><a routerLink="/add-project">Dodaj projekt</a></li>
+      </ul>
+    </li>
+    <li class="menu-item dropdown">
+      <button class="dropdown-toggle">
+        <mat-icon class="material-icons">insert_chart</mat-icon>
+        <span>Izvještaji</span> 
+      </button>
+      <ul class="dropdown-content">
+        <li><a routerLink="/radnikIzvjestaj">Sva zaduženja alata po radniku</a></li>
+        <li><a routerLink="/transakcijeAlata">Sve transakcije jednog alata</a></li>
+        <li><a routerLink="/transakcije">Sve transakcije po godini</a></li>
+        <li><a routerLink="/rashodovaniAlati">Svi rashodovani alati</a></li>
+      </ul>
+    </li>
+   
+  </ul>
+
+  <div *ngIf="isLoggedIn">
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

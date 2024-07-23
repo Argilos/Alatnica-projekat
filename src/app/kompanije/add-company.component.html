@@ -1,0 +1,38 @@
+<div class="add-company-container">
+  <h2>Dodaj dobavljača</h2>
+  <form (ngSubmit)="addCompany(companyForm)" #companyForm="ngForm">
+    <div class="form-group">
+      <label for="kompanija_naziv">Ime dobavljača:</label>
+      <input type="text" id="kompanija_naziv" name="kompanija_naziv" [(ngModel)]="company.kompanija_naziv" required>
+    </div>
+    <!-- <div class="form-group">
+      <label for="kompanija_longitude">Longitude:</label>
+      <input type="number" id="kompanija_longitude" name="kompanija_longitude" [(ngModel)]="company.kompanija_longitude" required>
+    </div>
+    <div class="form-group">
+      <label for="kompanija_latitude">Latitude:</label>
+      <input type="number" id="kompanija_latitude" name="kompanija_latitude" [(ngModel)]="company.kompanija_latitude" required>
+    </div> -->
+    <!-- <div class="form-group">
+      <label for="kompanija_telefon">Telefon:</label>
+      <input type="text" id="kompanija_telefon" name="kompanija_telefon" [(ngModel)]="company.kompanija_telefon" required>
+    </div> -->
+    <div class="form-group">
+      <label for="kompanija_email">Email:</label>
+      <input type="email" id="kompanija_email" name="kompanija_email" [(ngModel)]="company.kompanija_email" required>
+    </div>
+    <div class="form-group">
+      <label for="kompanija_kontakt_osoba">Kontakt osoba:</label>
+      <input type="text" id="kompanija_kontakt_osoba" name="kompanija_kontakt_osoba" [(ngModel)]="company.kompanija_kontakt_osoba" required>
+    </div>
+    <div class="form-group">
+      <label for="kompanija_kontakt_telefon">Kontakt telefon:</label>
+      <input type="text" id="kompanija_kontakt_telefon" name="kompanija_kontakt_telefon" [(ngModel)]="company.kompanija_kontakt_telefon" required>
+    </div>
+    <!-- <div class="form-group">
+      <label for="id_tip_kompanije">ID tip dobavljača:</label>
+      <input type="number" id="id_tip_kompanije" name="id_tip_kompanije" [(ngModel)]="company.id_tip_kompanije" required>
+    </div> -->
+    <button type="submit">Dodaj Dobavljača</button>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+.tool-list {
+    text-align: center;
+  }
+  
+  .tool-details {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+  }
+  
+  .tool-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tool-details li {
+    margin: 5px 0;
+  }
+  
+  .tool-details strong {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  

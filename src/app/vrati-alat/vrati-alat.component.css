@@ -1,0 +1,74 @@
+.inputDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}
+
+
+
+/* .inputDiv:hover {
+  transform: translate(-50%, -50%) scale(1.02); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+.etsId {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  margin-top: -10px;
+  padding-left: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 50%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 50%;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.success-message,
+.error-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.error-message {
+  background-color: #dc3545;
+  color: #fff;
+}

@@ -1,0 +1,60 @@
+<section class="izdajalatSec">
+  <!-- <h2>IZDAJ ALAT</h2> -->
+  <form [formGroup]="rentalForm" (ngSubmit)="rentOutTool()">
+    <label for="workerName">Ime radnika:</label>
+    <mat-form-field appearance="fill">
+      <mat-label>Ime radnika</mat-label>
+      <mat-select formControlName="workerName" required>
+        <mat-option *ngFor="let worker of workers" [value]="worker.uposlenik_ime">
+          {{ worker.uposlenik_ime }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label for="toolName">Ime alata:</label>
+    <mat-form-field appearance="fill">
+      <mat-label>Ime alata</mat-label>
+      <input type="text" matInput formControlName="toolName" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayToolName">
+        <mat-option *ngFor="let tool of filteredToolNames | async" [value]="tool">
+          {{ tool }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <label for="rentalDate">Datum izdavanja:</label>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" formControlName="rentalDate" required placeholder="Odaberite datum">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="month" [touchUi]="true"></mat-datepicker>
+    </mat-form-field>
+
+    <label for="selectedProjekat">Projekat</label>
+    <mat-form-field>
+      <mat-label>Projekat</mat-label>
+      <mat-select [formControl]="selectedUgovorIdCtrl" (selectionChange)="onIdProjekatChange($event)">
+        <mat-option *ngFor="let ugovorId of ugovorIds" [value]="ugovorId.ugovor_id">
+          {{ ugovorId.ugovor_id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label for="barcodeInput">Barcode:</label>
+    <input type="text" id="barcodeInput" formControlName="barcode">
+    <button type="button" class="barcodebtn" (click)="addBarcode()">Dodaj alat</button >
+
+    <div *ngIf="selectedBarcodes.length > 0">
+      <label>Izabrani alati:</label>
+      <ul>
+        <li class="addedBarcodes" *ngFor="let barcode of selectedBarcodes; let i = index">
+          {{ barcode }}
+          <button type="button" (click)="removeBarcode(i)">Izbriši alat</button>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <button class='rentout-btn' type="submit">Izdaj</button>
+  </form>
+</section>

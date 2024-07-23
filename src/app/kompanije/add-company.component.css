@@ -1,0 +1,74 @@
+/* Style for the form container */
+.add-company-container {
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  z-index: 1;
+}
+
+/* Style for the form heading */
+.add-company-container h2 {
+  color: #333;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for the form grid layout and spacing */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* Style for each form group */
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+/* Style for form labels */
+label {
+  font-weight: bold;
+}
+
+/* Style for form inputs */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Style for form buttons */
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive design for the form container */
+@media only screen and (max-width: 600px) {
+  .add-company-container {
+    width: 95%;
+    padding: 15px;
+  }
+}

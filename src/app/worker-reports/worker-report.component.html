@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="report-container">
+    <h2>Odaberi radnika</h2>
+    <form [formGroup]="workerSelectionForm" (ngSubmit)="onWorkerSelectionChange()">
+      <div class="form-group">
+        <label for="workerId">Radnik ID:</label>
+        <input type="text" id="workerId" formControlName="workerId" required>
+      </div>
+      <button type="submit">Učitaj izvještaj</button>
+    </form>
+    <!-- Add a new container for the report table -->
+    <div *ngIf="workerReport && workerReport.length > 0" class="report-table-container">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Ime alata</th>
+            <th>Barcode</th>
+            <th>Kategorija</th>
+            <th>Status</th>
+            <th>Datum izdavanja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tool of workerReport">
+            <td>{{ tool.toolName }}</td>
+            <td>{{ tool.barcode }}</td>
+            <td>{{ tool.category }}</td>
+            <td>{{ tool.status }}</td>
+            <td>{{ tool.rentalDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

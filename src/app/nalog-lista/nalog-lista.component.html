@@ -1,0 +1,9 @@
+<h2>Lista aktivnih naloga</h2>
+<div class="nalogs-container">
+  <ul class="nalogs-list">
+    <li *ngFor="let nalog of nalogs"> 
+      <!-- (click)="showRentedTools(nalog) when clicked to show  rented tools for this task" -->
+      {{ nalog.nalog_id }}
+    </li>
+  </ul>
+</div>

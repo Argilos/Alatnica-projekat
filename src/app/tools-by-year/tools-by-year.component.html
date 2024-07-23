@@ -1,0 +1,48 @@
+<!-- tools-by-year.component.html -->
+<div class="container">
+  <h2>Ulaz alata po godinama</h2>
+
+  <!-- Add YearSelectorComponent here -->
+  <app-year-selector (yearChange)="onYearChange($event)"></app-year-selector>
+
+  <!-- Display your tools based on the selected year -->
+  <div *ngIf="tools.length > 0" class="tools-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ETS ID</th>
+          <th>Name</th>
+          <th>Datum kupovine alata</th>
+          <th>Model</th>
+          <th>Proizvodjac</th>
+          <th>Kategorija</th>
+          <th>Status</th>
+          <th>Vrijednost (u KM)</th>
+          <th>Garancija</th>
+          <th>Preostali dani garancije</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tool of tools" 
+            (click)="handleRowClick(tool)"
+            [class.invalid]="!tool.alat_id">
+          <td>{{ tool.ets_id }}</td>
+          <td class="clickable">{{ tool.naziv }}</td>
+          <td>{{ tool.datum_ulaza }}</td>
+          <td>{{ tool.id_model }}</td>
+          <td>{{ tool.id_proizvodjac }}</td>
+          <td>{{ tool.id_kategorija }}</td>
+          <td>{{ tool.id_status }}</td>
+          <td>{{ tool.vrijednost }}</td>
+          <td>{{ tool.garancija_u_godinama }}</td>
+          <td>{{ tool.remaining_warranty }}</td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Display message if no tools found for the selected year -->
+  <div *ngIf="tools.length === 0" class="no-tools">
+    <p>Nema pronađenih alata za odabranu godinu.</p>
+  </div>
+</div>

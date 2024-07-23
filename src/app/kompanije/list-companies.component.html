@@ -1,0 +1,7 @@
+<div class="company-list">
+  <div *ngFor="let company of companies" class="company-profile" (click)="showCompanyDetails(company.kompanija_id)">
+    <h3>{{ company.kompanija_naziv }}</h3>
+    <p>ID: {{ company.kompanija_id }}</p>
+    <!-- Add more details as needed -->
+  </div>
+</div>

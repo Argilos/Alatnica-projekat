@@ -1,0 +1,25 @@
+<div class="worker-form-container">
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="uposlenik_ime">Ime:</label>
+      <input type="text" id="uposlenik_ime" name="uposlenik_ime" [(ngModel)]="newWorker.uposlenik_ime" required>
+    
+      <label for="uposlenik_prezime">Prezime:</label>
+      <input type="text" id="uposlenik_prezime" name="uposlenik_prezime" [(ngModel)]="newWorker.uposlenik_prezime" required>
+    
+      <label for="uposlenik_jmbg">JMBG:</label>
+      <input type="text" id="uposlenik_jmbg" name="uposlenik_jmbg" [(ngModel)]="newWorker.uposlenik_jmbg" required>
+    
+      <label for="uposlenik_broj_licneK">Broj lične karte:</label>
+      <input type="text" id="uposlenik_broj_licneK" name="uposlenik_broj_licneK" [(ngModel)]="newWorker.uposlenik_broj_licneK" required>
+    
+      <label for="uposlenik_kontakt">Kontakt:</label>
+      <input type="text" id="uposlenik_kontakt" name="uposlenik_kontakt" [(ngModel)]="newWorker.uposlenik_kontakt" required>
+    
+      <label for="id_uposlenik_tip">Tip uposlenika:</label>
+      <input type="text" id="id_uposlenik_tip" name="id_uposlenik_tip" [(ngModel)]="newWorker.id_uposlenik_tip" required>
+    </div>
+  
+    <button type="submit">Dodaj Uposlenika</button>
+  </form>
+</div>

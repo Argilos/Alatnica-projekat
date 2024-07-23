@@ -1,0 +1,41 @@
+<div class="tool-list">
+  <h2>Lista Alata</h2>
+  <ul>
+    <li *ngFor="let tool of tools">
+      <div class="tool-details">
+        <p><strong>Barcode:</strong></p>
+        <p>{{ tool.barcode }}</p>
+        
+        <p><strong>ETS:</strong></p>
+        <p>{{ tool.uniqueCode }}</p>
+        
+        <p><strong>Naziv:</strong></p>
+        <p>{{ tool.name }}</p>
+        
+        <p><strong>Datum Registrovanja:</strong></p>
+        <p>{{ tool.purchaseDate }}</p>
+        
+        <p><strong>Model:</strong></p>
+        <p>{{ tool.model }}</p>
+        
+        <p><strong>Proizvođač:</strong></p>
+        <p>{{ tool.manufacturer }}</p>
+        
+        <p><strong>Kategorija:</strong></p>
+        <p>{{ tool.category }}</p>
+        
+        <p><strong>Tip Izdavanja:</strong></p>
+        <p>{{ tool.issuingType }}</p>
+        
+        <p><strong>Status:</strong></p>
+        <p>{{ tool.status }}</p>
+        
+        <p><strong>Vrijednost:</strong></p>
+        <p>{{ tool.worth }}</p>
+        
+        <p><strong>ID naloga:</strong></p>
+        <p>{{ tool.warrantID }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

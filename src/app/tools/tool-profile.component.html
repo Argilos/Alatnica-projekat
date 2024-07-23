@@ -1,0 +1,195 @@
+<div *ngIf="tool" class="container">
+  <h2 class="tool-name">Profil {{ tool?.naziv }}</h2>
+  <div class="tool-details">
+    <div class="tool-attributes">
+      <p><strong>ID:</strong> {{ tool?.alat_id }}</p>
+      <p><strong>Ime:</strong> {{ tool?.naziv }}</p>
+      <p><strong>Model:</strong> {{ tool?.id_model }}</p>
+      <p><strong>Datum kupovine:</strong> {{ tool?.datum_ulaza }}</p>
+      <p><strong>Garancija (u godinama):</strong> {{ tool?.garancija_u_godinama }}</p>
+      <p><strong>Unikatni kod:</strong> {{ tool?.ets_id }}</p>
+      <p><strong>Proizvođač:</strong> {{ tool?.id_proizvodjac }}</p>
+      <p><strong>Kategorija:</strong> {{ tool?.id_kategorija }}</p>
+      <p><strong>Vrsta izdavanja:</strong> {{ tool?.id_tip_izdavanja }}</p>
+      <p><strong>Status:</strong> {{ tool?.id_status }}</p>
+      <p><strong>Vrijednost (u KM):</strong> {{ tool?.vrijednost }}</p>
+      <!-- <div class="buttons">
+        <div class="print-btn">
+          <button (click)="printLK()">Print LK</button>
+        </div>
+        <div class="servisiraj-btn">
+          <button (click)="handleServisirajAlatClick()">Servisiraj alat</button>
+        </div>
+        <div class="bazdari-btn">
+          <button (click)="handleBazdariAlatClick()">Baždari alat</button>
+        </div>
+      </div> -->
+    </div>
+
+    <div id="print-section" style="display:none;">
+      <h2>Profil {{ tool?.naziv }}</h2>
+      <div>
+        <p><strong>ID:</strong> {{ tool?.alat_id }}</p>
+        <p><strong>Ime:</strong> {{ tool?.naziv }}</p>
+        <p><strong>Model:</strong> {{ tool?.id_model }}</p>
+        <p><strong>Datum kupovine:</strong> {{ tool?.datum_ulaza }}</p>
+        <p><strong>Garancija (u godinama):</strong> {{ tool?.garancija_u_godinama }}</p>
+        <p><strong>Unikatni kod:</strong> {{ tool?.ets_id }}</p>
+        <p><strong>Proizvođač:</strong> {{ tool?.id_proizvodjac }}</p>
+        <p><strong>Kategorija:</strong> {{ tool?.id_kategorija }}</p>
+        <p><strong>Vrsta izdavanja:</strong> {{ tool?.id_tip_izdavanja }}</p>
+        <p><strong>Status:</strong> {{ tool?.id_status }}</p>
+        <p><strong>Vrijednost (u KM):</strong> {{ tool?.vrijednost }}</p>
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="Tool Image" style="width: 450px; height: auto; object-fit: cover; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Tool Image" class="tool-image">
+
+      <div class="upload-section" *ngIf="!imageUploaded">
+        <form (ngSubmit)="onUploadImage()" #uploadForm="ngForm">
+          <input type="file" (change)="onFileChange($event)" accept="image/*" required>
+          
+        </form>
+        <button type="submit" [disabled]="!selectedImage">Upload</button>
+      </div>
+
+      <p *ngIf="imageUploaded">Slika već uploadovana. Nemoguće uploadovati novu.</p>
+    </div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+      <div class="buttons">
+        <div class="print-btn">
+          <button (click)="printLK()">Print LK</button>
+        </div>
+        <div class="servisiraj-btn">
+          <button (click)="handleServisirajAlatClick()">Servisiraj alat</button>
+        </div>
+        <div class="bazdari-btn">
+          <button (click)="handleBazdariAlatClick()">Baždari alat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Menus Section -->
+<div class="menus">
+  <ul>
+    <li [class.active]="selectedMenu === 'Izdavanje'" (click)="selectedMenu = 'Izdavanje'">
+      <a href="javascript:void(0)">Izdavanja</a>
+    </li>
+    <li [class.active]="selectedMenu === 'Baždarenje'" (click)="selectedMenu = 'Baždarenje'">
+      <a href="javascript:void(0)">Baždarenja</a>
+    </li>
+    <li [class.active]="selectedMenu === 'Servisi'" (click)="selectedMenu = 'Servisi'; loadServisiList(tool?.ets_id)">
+      <a href="javascript:void(0)">Servisi</a>
+    </li>
+    <!-- <li [class.active]="selectedMenu === 'Finansije'" (click)="selectedMenu = 'Finansije'">
+      <a href="javascript:void(0)">Finansije</a>
+    </li> -->
+  </ul>
+</div>
+
+<!-- Content Section -->
+<div class="tool-profile-content">
+  <ng-container *ngIf="selectedMenu === 'Baždarenje'">
+    <h2>Baždarenja</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ETS ID</th>
+          <th>Datum Baždarenja</th>
+          <th>Datum Kraj Baždarenja</th>
+          <th>Serviser Kompanija</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bazdarenje of bazdarenjaList">
+          <td>{{ bazdarenje.bazdarenje_nalog }}</td>
+          <td>{{ bazdarenje.ets_id }}</td>
+          <td>{{ bazdarenje.datum_bazdarenja | date }}</td>
+          <td>{{ bazdarenje.datum_kraj_bazdarenja | date }}</td>
+          <td>{{ bazdarenje.serviser_kompanija }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="!(bazdarenjaList?.length)" class="no-data-message">
+      <h3>No data available for Baždarenje.</h3>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedMenu === 'Servisi'">
+    <h2>Servisi</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Servisni Nalog</th>
+          <th>ETS ID</th>
+          <th>Datum Servisa</th>
+          <th>Datum Završetka Servisa</th>
+          <th>Serviser Kontakt</th>
+          <th>Razlog Servisa</th>
+          <th>Izvještaj Servisa</th>
+          <th>Ime Servisera</th>
+          <th>Cijena Servisa</th>
+          <th>Serviser Kompanija</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let servis of servisiList">
+          <td>{{ servis.servis_nalog }}</td>
+          <td>{{ servis.ets_id }}</td>
+          <td>{{ servis.datum_servisa | date }}</td>
+          <td>{{ servis.datum_kraj_servisa | date }}</td>
+          <td>{{ servis.serviser_kontakt }}</td>
+          <td>{{ servis.razlog_servisa }}</td>
+          <td>{{ servis.izvjestaj_servisa }}</td>
+          <td>{{ servis.ime_servisera }}</td>
+          <td>{{ servis.cijena_servisa }}</td>
+          <td>{{ servis.serviser_kompanija }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Display a message if there is no data -->
+    <div *ngIf="servisiList.length === 0" class="no-data-message">
+      <h3>No data available for Servisi.</h3>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedMenu === 'Izdavanje'" class="tool-profile-table">
+    <h2>Izdavanja</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nalog</th>
+          <th>Datum izdavanja</th>
+          <th>Datum datum povratka</th>
+          <!-- <th>Status</th>
+          <th>Barcode</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let izdavanje of izdavanjaListFormatted">
+          <td>{{ izdavanje.nalog_id }}</td>
+          <td>{{ izdavanje.datum_od }}</td>
+          <td>{{ izdavanje.datum_do }}</td>
+          <!-- <td>{{ izdavanje.status }}</td>
+          <td>{{ izdavanje.barcode }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <!-- Display a message if there is no data -->
+    <div *ngIf="izdavanjaListFormatted.length === 0" class="no-data-message">
+      <h3>No data available for Izdavanje.</h3>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedMenu === 'Finansije'">
+    <h2>Finansije</h2>
+    <!-- Add your finansije content here -->
+  </ng-container>
+</div>

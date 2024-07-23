@@ -1,0 +1,12 @@
+<div class="worker-profile-container">
+  <div *ngFor="let worker of workers" class="worker-profile">
+    <div (click)="navigateToWorkerProfile(worker.id)">
+      <img [src]="worker.picture" alt="Profile Picture" class="profile-picture">
+      <div class="profile-details">
+        <span>{{ worker.uposlenik_ime }} </span>
+        <span>{{ worker.uposlenik_prezime }}</span>
+        <span>ID: {{ worker.id }}</span>
+      </div>
+    </div>
+  </div>
+</div>

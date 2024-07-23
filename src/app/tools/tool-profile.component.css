@@ -1,0 +1,325 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure disabled button appears visually disabled */
+button:disabled {
+  background-color: #d3d3d3; /* Light gray color */
+  cursor: not-allowed; /* Not-allowed cursor */
+  opacity: 0.6; /* Slightly transparent */
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+.tool-name {
+  text-align: center;
+  margin-top: 90px;
+  font-size: 28px; /* Slightly smaller for better hierarchy */
+  font-weight: bold;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tool details styles */
+.tool-details {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.tool-attributes {
+  width: 70%; /* Adjust as needed based on content length */
+  color: #333; /* Text color change */
+  margin-right: 20px; /* Spacing for better separation */
+}
+
+.tool-attributes p {
+  margin: 10px 0;
+}
+
+.tool-attributes,
+.image-section {
+  
+  width: 70%; /* Full width on smaller screens */
+  margin-bottom: 20px; /* Spacing between sections */
+}
+
+
+.tool-image {
+  width: 250px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+button {
+  padding: 12px 20px; /* Slightly larger padding */
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+/* Menus styles */
+.menus {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: #333; */
+  padding: 10px 0;
+}
+
+.menus ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.menus li {
+  margin: 0 10px;
+}
+
+.menus a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menus a:hover {
+  background-color: #555;
+}
+
+.menus .active a {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+/* Add styles for the menu items */
+.menus li {
+  position: relative;
+}
+
+.menus a {
+  position: relative;
+  z-index: 1;
+}
+
+.menus a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4CAF50;
+  transition: width 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.menus a:hover::before {
+  width: 100%;
+}
+
+.menus .active a::before {
+  width: 100%;
+}
+
+/* Center the text vertically */
+.menus a {
+  display: flex;
+  align-items: center;
+}
+
+/* Content styles */
+.tool-profile-content {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  background: transparent;
+}
+
+table {
+  width: 87%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 11.9%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #fff; /* White background for header row */
+  color: #000; /* Black text for header row */
+}
+
+tr:nth-child(even),
+tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Light gray background for odd and even rows */
+  color: #000; /* Black text for all rows */
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 16px;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 16px;
+}
+
+.no-data-message {
+  text-align: center;
+  margin-top: 20px;
+  color: #999;
+}
+
+@media print {
+  .menus,
+  .buttons {
+    display: none;
+  }
+}
+
+/* Tool profile table styles */
+.tool-profile-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tool-profile-table th,
+.tool-profile-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tool-profile-table th {
+  background-color: #fff; /* White background for header row */
+  color: #000; /* Black text for header row */
+}
+
+.tool-profile-table tr:nth-child(even),
+.tool-profile-table tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Light gray background for odd and even rows */
+  color: #000; /* Black text for all rows */
+}
+
+.tool-profile-table th:first-child,
+.tool-profile-table td:first-child {
+  padding-left: 16px;
+}
+
+.tool-profile-table th:last-child,
+.tool-profile-table td:last-child {
+  padding-right: 16px;
+}
+
+/* Tool profile table responsive styles */
+@media screen and (max-width: 768px) {
+  .tool-profile-table th,
+  .tool-profile-table td {
+    flex-direction: column;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tool-profile-table th,
+  .tool-profile-table td {
+    width: 100%;
+  }
+}
+
+.image-section {
+  margin-top: -30%;
+  margin-left: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.tool-image {
+  width: 400px; /* Adjust as needed */
+  height: auto; /* Adjust as needed */
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.button-container {
+  margin-left: 70%;
+  margin-top: -25%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Spacing between buttons */
+}
+
+.print-btn,
+.servisiraj-btn,
+.bazdari-btn {
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.image-section input {
+  position: absolute;
+  margin-top: 165px;
+  margin-left: -18%;
+  
+}
+
+.image-section button {
+  position: absolute;
+  margin-top: 220px;
+  margin-left: -13%
+}

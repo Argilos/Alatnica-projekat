@@ -1,0 +1,78 @@
+<div class="servisiutoku">
+  <h2>Baždarenja u toku</h2>
+  <div>
+    <button mat-button *ngIf="selectedTools.length > 0" class="update-button" (click)="confirmSelectedTools()">Potvrdi odabrane alate</button>
+  </div>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <!-- table columns -->
+    <ng-container matColumnDef="ets_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ETS ID </mat-header-cell>
+      <mat-cell *matCellDef="let tool"> {{ tool.ets_id }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="naziv">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Naziv </mat-header-cell>
+      <mat-cell *matCellDef="let tool"> {{ tool.naziv }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="bazdarenje_nalog">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nalog baždarenja </mat-header-cell>
+      <mat-cell *matCellDef="let tool">
+        <a href="#" (click)="openBazdarenjeNalog($event, tool)">{{ tool.bazdarenje_nalog }}</a>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Izaberi alat">
+      <mat-header-cell *matHeaderCellDef> Izaberi alat </mat-header-cell>
+      <mat-cell *matCellDef="let tool">
+        <button mat-icon-button (click)="toggleToWarehouse(tool)">
+          <mat-icon>{{ tool.toggledToWarehouse ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <!-- popup form -->
+  <div *ngIf="selectedBazdarenje" class="overlay">
+    <div class="edit-form">
+      <h2>Edit Baždarenja Nalog</h2>
+      <form [formGroup]="bazdarenjeForm" (ngSubmit)="submitForm()">
+        <mat-card class="mat-card">
+          <mat-card-content>
+            <mat-form-field class="full-width">
+              <mat-label>Servis Nalog</mat-label>
+              <input matInput id="servisniNalog" type="text" formControlName="bazdarenje_nalog" readonly />
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Kontakt servisera</mat-label>
+              <input matInput id="serviserContact" type="text" formControlName="serviserContact" [readonly]="!formEdited" (input)="onInputChange(); formEdited = true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Izvještaj baždarenja</mat-label>
+              <textarea matInput id="izvjestajBazdarenja" formControlName="izvjestajBazdarenja" [readonly]="!formEdited" (input)="onInputChange(); formEdited = true"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Interval baždarenja (u godinama)</mat-label>
+              <input matInput id="intervalBazdarenja" type="text" formControlName="intervalBazdarenja" [readonly]="!formEdited" (input)="onInputChange(); formEdited = true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Cijena baždarenja</mat-label>
+              <input matInput id="servicePrice" type="number" formControlName="cijenaBazdarenja" [readonly]="!formEdited" (input)="onInputChange(); formEdited = true">
+            </mat-form-field>
+
+            <div class="form-actions">
+              <button mat-button type="submit" [disabled]="isFormSubmitted || !bazdarenjeForm.valid">
+                {{ isFormSubmitted ? 'Nalog vec predan' : 'Spremi' }}
+              </button>
+              <button mat-button type="button" (click)="closeBazdarenjeNalog()">Odustani</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>

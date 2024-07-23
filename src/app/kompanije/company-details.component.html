@@ -1,0 +1,22 @@
+<div *ngIf="companyDetails" class="company-details">
+  <h2>Detalji o kompaniji</h2>
+  <div class="detail-item">
+    <strong>ID:</strong> {{ companyDetails.kompanija_id }}
+  </div>
+  <div class="detail-item">
+    <strong>Ime:</strong> {{ companyDetails.kompanija_naziv }}
+  </div>
+
+  <div class="detail-item">
+    <strong>Email:</strong> 
+    <a [href]="'mailto:' + companyDetails.kompanija_email">{{ companyDetails.kompanija_email }}</a>
+  </div>
+  <div class="detail-item">
+    <strong>Kontakt osoba:</strong> {{ companyDetails.kompanija_kontakt_osoba }}
+  </div>
+  <div class="detail-item">
+    <strong>Kontakt telefon:</strong> {{ companyDetails.kompanija_kontakt_telefon }}
+  </div>
+  
+  
+</div>

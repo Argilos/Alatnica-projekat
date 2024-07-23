@@ -1,0 +1,30 @@
+<!-- tool-rentals.component.html -->
+<div class="tool-rentals">
+  <h2>Zaduženja alata</h2>
+  <form [formGroup]="toolRentalsForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group">
+          <label for="ets_id">Unesi ETS ID:</label>
+          <input type="text" id="ets_id" formControlName="ets_id" required>
+      </div>
+      <button type="submit">Učitaj zaduženja alata </button>
+  </form>
+
+  <table *ngIf="toolRentals && toolRentals.length > 0" class="rentals-table">
+      <thead>
+          <tr>
+              <th>Ime radnika</th>
+              <th>Datum iznajmljivanja</th>
+              <th>Datum povratka</th>
+              <th>Nalog</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let rental of toolRentals">
+              <td>{{ rental.workerName }}</td>
+              <td>{{ rental.rentalDate }}</td>
+              <td>{{ rental.returnDate }}</td>
+              <td>{{ rental.nalogId }}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

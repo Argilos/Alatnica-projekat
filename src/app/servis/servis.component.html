@@ -1,0 +1,76 @@
+<div class="servis-container">
+  <h2>Servisni nalog</h2>
+
+  <button (click)="toggleForm()">Novi servisni nalog</button>
+
+  <div *ngIf="formVisible">
+    <div class="servis-info">
+      <div class="info-section">
+        <p><strong>Datum:</strong> {{ currentDate | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Broj servisnog naloga:</strong> {{ servisniNalogNumber }}</p>
+      </div>
+      <div class="info-section">
+        <label for="contact"><strong>Kontakt:</strong></label>
+        <input type="text" id="contact" [(ngModel)]="servicerContact" />
+      </div>
+      
+    </div>
+
+    <div class="tool-info">
+      <label for="toolId"><strong>ID alata:</strong></label>
+      <mat-form-field appearance="fill">
+        <mat-label>ID alata</mat-label>
+        <mat-select [(ngModel)]="selectedTool" (selectionChange)="onToolSelected($event.value)">
+          <mat-option *ngFor="let tool of filteredTools | async" [value]="tool">
+            {{ tool.ets_id }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <label for="toolName"><strong>Ime alata:</strong></label>
+      <mat-form-field appearance="fill">
+        <mat-label>Ime alata</mat-label>
+        <mat-select [(ngModel)]="selectedTool" (selectionChange)="onToolSelected($event.value)">
+          <mat-option *ngFor="let tool of filteredTools | async" [value]="tool">
+            {{ tool.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="service-purpose">
+      <label for="purpose">Razlog servisa:</label>
+      <textarea id="purpose" [(ngModel)]="servicePurpose"></textarea>
+    </div>
+
+    <div class="servicer-field">
+  <label for="servicer">Serviser:</label>
+  <mat-form-field>
+    <mat-label>Serviser</mat-label>
+    <mat-select [(value)]="selectedServicer" (selectionChange)="onServicerSelected($event)">
+      <mat-option *ngFor="let servicer of servicers" [value]="servicer">
+        {{ servicer.serviser_kompanija }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+    <!-- <div class="service-report">
+      <label for="izvjestaj">Izvještaj servisa:</label>
+      <textarea id="izvjestaj" [(ngModel)]="izvjestajServisa" readonly></textarea>
+    </div>
+
+    <div class="service-price">
+      <label for="servicePrice">Cijena servisa:</label>
+      <input type="text" id="servisPrice" [(ngModel)]="servicePrice" readonly />
+    </div>
+
+    <div class="servicer-signature">
+      <label for="servicerSignature">Potpis servisera:</label>
+      <input type="text" id="servicerSignature" [(ngModel)]="servicerSignature" readonly />
+    </div> -->
+  </div>
+  <div class="izdaj-btn-container">
+    <button (click)="izdajNaServis()">Izdaj na servis</button>
+  </div>
+</div>

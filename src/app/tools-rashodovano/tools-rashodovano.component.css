@@ -1,0 +1,69 @@
+/* Advanced CSS Styling for .container */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  background-image: url('your-background-image.jpg'); /* Optional background image */
+  background-size: cover;
+  background-position: center;
+}
+
+
+.container h2 {
+  color: #333;
+  font-size: 24px; /* Adjust font size as needed */
+  margin-bottom: 15px;
+  text-align: center; /* Center the heading */
+}
+
+.container p {
+  color: #888;
+  font-style: italic;
+  text-align: center; /* Center the message */
+}
+
+/* Styling for the table */
+
+.table {
+  width: 100%; /* Ensure table fills the container */
+  border-collapse: collapse; /* Improve table appearance */
+  margin-top: 20px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold; /* Make header text bold */
+}
+
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Alternate row shading */
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Responsive table */
+@media screen and (max-width: 600px) {
+  .table {
+    overflow-x: auto;
+  }
+  .table th, .table td {
+    white-space: nowrap;
+  }
+}

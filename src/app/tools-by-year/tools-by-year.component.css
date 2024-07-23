@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef;
+  margin: 0;
+}
+
+.container {
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  transform: translateX(-50%);
+  width: 90%; /* Increase width to make the container bigger */
+  max-width: 1200px; /* Increase max-width to allow the container to grow larger */
+  margin: 50px auto;
+}
+
+h2 {
+  color: black;
+}
+
+.tools-table {
+  margin-top: 20px;
+  color: #333; /* Darker gray text for better contrast */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #F7F7F7; /* Light gray background */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: #454545; /* Darker gray text */
+}
+
+th {
+  background-color: #E5E5E5; /* Lighter gray header background */
+  color: #333; /* Darker text for headers */
+}
+
+.no-tools p {
+  color: #777;
+}
+
+.clickable {
+  color: #33C0FF; /* Light blue for clickable elements */
+  cursor: pointer;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}

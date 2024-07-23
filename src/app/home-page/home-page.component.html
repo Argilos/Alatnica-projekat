@@ -1,0 +1,84 @@
+<div class="quick-access">
+  <h2>Dashboard</h2>
+  <div class="access-category">
+    <h3>Alat</h3>
+    <ul>
+      <li><a routerLink="/izdajAlat"><mat-icon>add_box</mat-icon> Izdaj alat</a></li>
+      <li><a routerLink="/vrati-alat"><mat-icon>restore</mat-icon> Vrati alat</a></li>
+      <li><a routerLink="/licnaKarta"><mat-icon>add</mat-icon> Unesi novi alat</a></li>
+      <li><a routerLink="/nalog_list"><mat-icon>list</mat-icon> Lista naloga</a></li>
+      <li><a routerLink="/tools"><mat-icon>description</mat-icon> Lična Karta</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/rashoduj"><mat-icon>remove_circle_outline</mat-icon> Rashoduj alat</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Servis</h3>
+    <ul>
+      <li><a routerLink="/servis"><mat-icon>assignment</mat-icon> Novi servisni nalog</a></li>
+      <li><a routerLink="/service-in-progress"><mat-icon>list_alt</mat-icon> Pregled svih servisa</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Baždarenje</h3>
+    <ul>
+      <li><a routerLink="/bazdarenje"><mat-icon>assignment</mat-icon> Novo baždarenje</a></li>
+      <li><a routerLink="/bazdarenja-in-progress"><mat-icon>list_alt</mat-icon> Pregled baždarenja</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Radnik</h3>
+    <ul>
+      <li><a routerLink="/unesi-radnika"><mat-icon>add</mat-icon> Unesi radnika</a></li>
+      <li><a routerLink="/radnici"><mat-icon>list</mat-icon> Pregled radnika</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Dobavljači</h3>
+    <ul>
+      <li><a routerLink="/unesi_dobavljaca"><mat-icon>add</mat-icon> Unesi dobavljača</a></li>
+      <li><a routerLink="/pregled_dobavljaca"><mat-icon>list</mat-icon> Pregled dobavljača</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Projekti</h3>
+    <ul>
+      <li><a routerLink="/project-list">Lista projekata</a></li>
+      <li><a routerLink="/add-project">Dodaj projekt</a></li>
+    </ul>
+  </div>
+  <div class="access-category">
+    <h3>Izvještaji</h3>
+    <ul>
+      <li><a routerLink="/radnikIzvjestaj">Sva zaduženja alata po radniku</a></li>
+      <li><a routerLink="/transakcijeAlata">Sve transakcije jednog alata</a></li>
+      <li><a routerLink="/transakcije">Sve transakcije po godini</a></li>
+      <li><a routerLink="/rashodovaniAlati">Svi rashodovani alati</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="second-access">
+    <h2>Alati</h2>
+    <div class="access-category">
+      <div class="tool-info">
+        <h3>Broj izdatih alata: {{ numberOfIssuedTools }}</h3>
+        <div></div>
+      </div>
+      <div class="tool-info">
+        <h3>Broj alata na servisu: {{ numberOfToolsOnService }}</h3>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="notifikacije">
+  <div class="second-access">
+    <h2>Notifikacije</h2>
+    <app-notification-bar></app-notification-bar>
+  </div>
+</div> -->
+
+
+

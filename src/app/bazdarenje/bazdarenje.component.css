@@ -1,0 +1,178 @@
+.servis-container {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 1200px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  background-color: #007bff; /* Blue button */
+  color: #fff; /* White text */
+  border: none;
+  padding: 12px 20px; /* Adjust padding as needed */
+  font-size: 16px;
+  border-radius: 4px; /* Add rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.servis-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-section {
+  flex-basis: 45%;
+  margin: 20px;
+}
+
+.info-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.info-section input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.izdaj-btn-container {
+  
+  text-align: center;
+  margin-top: 20px;
+}
+
+.izdaj-btn-container button:hover {
+  background-color: #0056b3; /* Darker green on hover */
+}
+
+.tool-info {
+  margin-top: 30px;
+}
+
+.tool-info label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tool-info mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.bazdarenje-purpose {
+  margin-top: 30px;
+}
+
+.bazdarenje-purpose label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bazdarenje-purpose textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.servicer-field {
+  margin-top: 30px;
+}
+
+.servicer-field label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.servicer-field mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Additional styles for other sections */
+.bazdarenje-report {
+  margin-top: 30px;
+}
+
+.bazdarenje-report label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bazdarenje-report textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.bazdarenje-price {
+  margin-top: 30px;
+}
+
+.bazdarenje-price label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bazdarenje-price input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.bazdarenje-interval {
+  margin-top: 30px;
+}
+
+.bazdarenje-interval label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bazdarenje-interval input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.servicer-signature {
+  margin-top: 30px;
+}
+
+.servicer-signature label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.servicer-signature input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}

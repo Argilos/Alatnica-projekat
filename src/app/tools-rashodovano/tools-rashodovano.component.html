@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Rashodovani Alati</h2>
+
+  <!-- Check if there are rashodovanoTools to display -->
+  <div *ngIf="rashodovanoTools.length > 0; else noRashodovanoTools">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>ETS ID</th>
+                  <th>Naziv</th>
+                  <th>Bar Kod</th>
+                  <!-- Add more columns as needed -->
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Iterate through rashodovanoTools and display each tool -->
+              <tr *ngFor="let tool of rashodovanoTools">
+                  <td>{{ tool.ets_id }}</td>
+                  <td>{{ tool.naziv }}</td>
+                  <td>{{ tool.bar_kod }}</td>
+                  <!-- Add more columns as needed -->
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <!-- Display a message if no rashodovanoTools are found -->
+  <ng-template #noRashodovanoTools>
+      <p>Nije pronađen nijedan rashodovani alat.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,21 @@
+<div class="add-project-container">
+  <h2>Dodaj novi projekat</h2>
+  <form class="add-project-form" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="ugovorId">Ugovor ID:</label>
+      <input type="text" id="ugovorId" name="ugovorId" [(ngModel)]="ugovorId" required>
+    </div>
+    <div class="form-group">
+      <label for="company">Kompanija:</label>
+      <input type="text" id="company" name="company" [(ngModel)]="company" required>
+    </div>
+    <div class="form-group">
+      <label for="year">Godina:</label>
+      <input type="number" id="year" name="year" [(ngModel)]="year" required>
+    </div>
+    <button type="submit">Dodaj projekat!</button>
+  </form>
+
+  <div class="message" *ngIf="message">{{ message }}</div>
+</div>

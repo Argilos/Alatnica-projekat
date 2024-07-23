@@ -1,0 +1,91 @@
+<div class="servisiutoku" *ngIf="servicesInProgress.data.length > 0; else noServices">
+  <h2>Servisi u toku</h2>
+  <div>
+    <button mat-button *ngIf="selectedTools.length > 0" class="update-button" (click)="confirmSelectedTools()">Potvrdi odabrane alate</button>
+  </div>
+</div>
+
+<mat-table [dataSource]="servicesInProgress" matSort class="mat-elevation-z8">
+  <!-- Define your columns -->
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef>
+      <!-- Include mat-sort-header only if the column is not 'Izaberi alat' -->
+      <ng-container *ngIf="column !== 'Izaberi alat'">
+        <div mat-sort-header>{{ column | titlecase }}</div>
+      </ng-container>
+      <!-- If column is 'Izaberi alat', don't include mat-sort-header -->
+      <ng-container *ngIf="column === 'Izaberi alat'">
+        {{ column | titlecase }}
+      </ng-container>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let tool">
+      <!-- Check if the column is 'datum_servisa' and apply date pipe -->
+      <ng-container *ngIf="column === 'datum_servisa'; else defaultContent">
+        {{ tool[column] | date:'dd.MM.yyyy' }}
+      </ng-container>
+      <!-- Default content for other columns -->
+      <ng-template #defaultContent>
+        <ng-container *ngIf="column === 'servis_nalog'; else otherContent">
+          <a href="#" (click)="openServisniNalog($event, tool)">{{ tool[column] }}</a>
+        </ng-container>
+        <ng-template #otherContent>
+          {{ tool[column] }}
+        </ng-template>
+      </ng-template>
+      <!-- Add custom toggle button for 'Izaberi alat' column -->
+      <ng-container *ngIf="column === 'Izaberi alat'">
+        <button mat-icon-button (click)="toggleToWarehouse(tool)">
+          <mat-icon>{{ tool.toggledToWarehouse ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+        </button>
+      </ng-container>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Define the table rows -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<ng-template #noServices>
+  <p>Nema servisa u toku.</p>
+</ng-template>
+
+<div *ngIf="selectedService" class="overlay">
+  <div class="edit-form">
+    <h2>Edit Servis Nalog</h2>
+    <form [attr.disabled]="formEdited ? true : null">
+      <mat-form-field class="full-width">
+        <mat-label>Servis Nalog</mat-label>
+        <input matInput id="servisniNalog" type="text" [(ngModel)]="selectedService.servis_nalog" name="servisniNalog" />
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Kontakt servisera</mat-label>
+        <input matInput id="serviserContact" type="text" [(ngModel)]="serviserContact" name="serviserContact" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Izvještaj servisa</mat-label>
+        <textarea matInput id="izvjestajServisa" [(ngModel)]="izvjestajServisa" name="izvjestajServisa"></textarea>
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Potpis servisera (ime)</mat-label>
+        <input matInput id="servicerSignature" type="text" [(ngModel)]="imeServisera" name="servicerSignature" />
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Cijena servisa</mat-label>
+        <input matInput id="servicePrice" type="number" [(ngModel)]="cijenaServisa" name="servicePrice" />
+      </mat-form-field>
+      
+      <div class="form-actions">
+        <div *ngIf="submitMessage" class="message">
+          {{ submitMessage }}
+        </div>
+        <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="formEdited">Submit</button>
+        <button mat-raised-button color="warn" (click)="closeForm()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

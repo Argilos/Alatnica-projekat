@@ -1,0 +1,18 @@
+<!-- tool-list.component.html -->
+
+<form [formGroup]="searchForm">
+  <div class="searchContainer">
+    <input class="searchTerm" type="text" formControlName="searchTerm" />
+    <button type="button" (click)="search(); updateSearchService()">Search</button>
+  </div>
+</form>
+
+
+<!-- tool-list.component.html -->
+<ul>
+  <li *ngFor="let tool of filteredTools">
+    <a [routerLink]="['/tool', tool.alat_id]" (click)="navigateToToolProfile(tool.alat_id)">
+      {{ tool.naziv }}
+    </a>
+  </li>
+</ul>

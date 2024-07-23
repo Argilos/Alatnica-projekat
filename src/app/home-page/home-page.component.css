@@ -1,0 +1,129 @@
+/* Style the quick access container */
+.quick-access {
+  display: flex; /* Arrange categories horizontally */
+  flex-wrap: wrap; /* Allow categories to wrap on smaller screens */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 5px; /* Rounded corners for a softer look */
+  padding: 10px; /* Inner padding for content breathing room */
+  margin-left: 15%;
+  margin-top: 140px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 83%;
+ 
+}
+
+/* Style the access category blocks */
+.access-category {
+  flex: 1 0 auto; /* Makes categories equally sized initially */
+  margin: 5px; /* Margin for spacing between categories */
+  text-align: center; /* Center content within each category */
+  padding: 15px; /* Padding for content and spacing */
+  cursor: pointer; /* Indicate clickable elements */
+  transition: background-color 0.2s ease-in-out; /* Smooth background change on hover */
+}
+
+/* Style the access category blocks on hover */
+.access-category:hover {
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+/* Style the category title (h3) */
+.access-category h3 {
+  margin-bottom: 10px; /* Space between title and list */
+  font-size: 16px; /* Title font size */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Style the unordered list (ul) */
+.access-category ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0; /* Remove default list padding */
+  margin: 0; /* Remove default list margin */
+}
+
+/* Style the list items (li) */
+.access-category ul li {
+  margin-bottom: 5px; /* Space between list items */
+}
+
+/* Style the anchor links (a) */
+.access-category ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Text color */
+  display: flex; /* Allow icons and text to align horizontally */
+  align-items: center; /* Center icons and text vertically */
+  justify-content: space-between; /* Space text and icons evenly */
+  position: relative; /* Needed for the underline pseudo-element */
+}
+
+/* Style the underline pseudo-element */
+.access-category ul li a:after {
+  content: ""; /* Empty content to create a visual line */
+  position: absolute; /* Position the line under the link */
+  width: 0; /* Initially hide the line */
+  height: 2px; /* Line thickness */
+  background-color: #333; /* Underline color */
+  transition: width 0.2s ease-in-out; /* Smooth underline animation */
+  bottom: 0; /* Position the line at the bottom of the link */
+  left: 0; /* Align the line with the left edge of the link */
+}
+
+/* Show the underline on hover */
+.access-category ul li a:hover:after {
+  width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Style the font awesome icons (mat-icon) */
+.access-category ul li a mat-icon {
+  font-size: 20px; /* Icon size */
+  margin-right: 10px; /* Space between icon and text */
+  color: #777; /* Icon color */
+}
+
+/* Hide the 'Rashoduj alat' link if 'isAdmin' condition is not met  */
+.access-category li:nth-child(6) {
+  display: none; /* Initially hide the element */
+}
+
+/* Show the 'Rashoduj alat' link if 'isAdmin' condition is met  */
+.access-category li:nth-child(6)[ngIf] {
+  display: block; /* Show the element only if the condition is true */
+}
+
+.content {
+  margin-left: 280px;
+  margin-top: 70px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the second-access section */
+.second-access {
+  text-align: left;
+}
+
+/* Style the tool info sections */
+.tool-info {
+  margin-bottom: 20px;
+}
+
+.access-category .tool-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notifikacije{
+  display: flex; 
+  flex-wrap: wrap; 
+  background-color: #f0f0f0; 
+  border-radius: 5px; 
+  padding: 10px;
+  margin-left: 15%;
+  margin-top: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  max-width: 83%;
+}

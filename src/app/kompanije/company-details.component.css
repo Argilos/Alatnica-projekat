@@ -1,0 +1,41 @@
+/* Style for the company-details container */
+.company-details {
+  max-width: 800px;
+  
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 35%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+/* Style for each detail item */
+.detail-item {
+  margin-bottom: 15px;
+}
+
+/* Style for strong elements within detail items */
+.detail-item strong {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* Style for heading element */
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Responsive design for the company-details container */
+@media only screen and (max-width: 600px) {
+  .company-details {
+    width: 90%;
+    padding: 15px;
+  }
+}

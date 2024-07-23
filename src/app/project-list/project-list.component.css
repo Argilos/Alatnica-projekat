@@ -1,0 +1,62 @@
+/* project-list.component.css */
+
+.project-list-container {
+  position: relative;
+  top: 150px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.project-list-container h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+
+.project-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-details p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.no-projects-message {
+  color: #888;
+  text-align: center;
+}
+
+/* Responsive design for project cards */
+@media (max-width: 768px) {
+  .project-list-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      padding: 15px;
+      gap: 15px;
+  }
+
+  .project-card {
+      padding: 20px;
+  }
+
+  .project-list-container h2 {
+      font-size: 24px;
+  }
+
+  .year-selector {
+    color: black !important;
+}
+
+}

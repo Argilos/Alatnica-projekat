@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Global styles for Rashodovano component */
+app-tools-rashodovano {
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  app-tools-rashodovano h2 {
+    color: #333;
+  }
+  
+  app-tools-rashodovano .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  app-tools-rashodovano .table th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  app-tools-rashodovano .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  app-tools-rashodovano p {
+    color: #888;
+    font-style: italic;
+  }
+  
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    width: 100%;
+  }
+  
+  .dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f9f9f9;
+  }
+  
