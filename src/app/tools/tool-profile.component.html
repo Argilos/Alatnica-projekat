@@ -1,18 +1,18 @@
 <div *ngIf="tool" class="container">
-  <h2 class="tool-name">Profil {{ tool?.naziv }}</h2>
+  <h2 class="tool-name">Profil {{ tool.naziv }}</h2>
   <div class="tool-details">
     <div class="tool-attributes">
-      <p><strong>ID:</strong> {{ tool?.alat_id }}</p>
-      <p><strong>Ime:</strong> {{ tool?.naziv }}</p>
-      <p><strong>Model:</strong> {{ tool?.id_model }}</p>
-      <p><strong>Datum kupovine:</strong> {{ tool?.datum_ulaza }}</p>
-      <p><strong>Garancija (u godinama):</strong> {{ tool?.garancija_u_godinama }}</p>
-      <p><strong>Unikatni kod:</strong> {{ tool?.ets_id }}</p>
-      <p><strong>Proizvođač:</strong> {{ tool?.id_proizvodjac }}</p>
-      <p><strong>Kategorija:</strong> {{ tool?.id_kategorija }}</p>
-      <p><strong>Vrsta izdavanja:</strong> {{ tool?.id_tip_izdavanja }}</p>
-      <p><strong>Status:</strong> {{ tool?.id_status }}</p>
-      <p><strong>Vrijednost (u KM):</strong> {{ tool?.vrijednost }}</p>
+      <p><strong>ID:</strong> {{ tool.alat_id }}</p>
+      <p><strong>Ime:</strong> {{ tool.naziv }}</p>
+      <p><strong>Model:</strong> {{ tool.id_model }}</p>
+      <p><strong>Datum kupovine:</strong> {{ tool.datum_ulaza }}</p>
+      <p><strong>Garancija (u godinama):</strong> {{ tool.garancija_u_godinama }}</p>
+      <p><strong>Unikatni kod:</strong> {{ tool.ets_id }}</p>
+      <p><strong>Proizvođač:</strong> {{ tool.id_proizvodjac }}</p>
+      <p><strong>Kategorija:</strong> {{ tool.id_kategorija }}</p>
+      <p><strong>Vrsta izdavanja:</strong> {{ tool.id_tip_izdavanja }}</p>
+      <p><strong>Status:</strong> {{ tool.id_status }}</p>
+      <p><strong>Vrijednost (u KM):</strong> {{ tool.vrijednost }}</p>
       <!-- <div class="buttons">
         <div class="print-btn">
           <button (click)="printLK()">Print LK</button>
@@ -27,19 +27,19 @@
     </div>
 
     <div id="print-section" style="display:none;">
-      <h2>Profil {{ tool?.naziv }}</h2>
+      <h2>Profil {{ tool.naziv }}</h2>
       <div>
-        <p><strong>ID:</strong> {{ tool?.alat_id }}</p>
-        <p><strong>Ime:</strong> {{ tool?.naziv }}</p>
-        <p><strong>Model:</strong> {{ tool?.id_model }}</p>
-        <p><strong>Datum kupovine:</strong> {{ tool?.datum_ulaza }}</p>
-        <p><strong>Garancija (u godinama):</strong> {{ tool?.garancija_u_godinama }}</p>
-        <p><strong>Unikatni kod:</strong> {{ tool?.ets_id }}</p>
-        <p><strong>Proizvođač:</strong> {{ tool?.id_proizvodjac }}</p>
-        <p><strong>Kategorija:</strong> {{ tool?.id_kategorija }}</p>
-        <p><strong>Vrsta izdavanja:</strong> {{ tool?.id_tip_izdavanja }}</p>
-        <p><strong>Status:</strong> {{ tool?.id_status }}</p>
-        <p><strong>Vrijednost (u KM):</strong> {{ tool?.vrijednost }}</p>
+        <p><strong>ID:</strong> {{ tool.alat_id }}</p>
+        <p><strong>Ime:</strong> {{ tool.naziv }}</p>
+        <p><strong>Model:</strong> {{ tool.id_model }}</p>
+        <p><strong>Datum kupovine:</strong> {{ tool.datum_ulaza }}</p>
+        <p><strong>Garancija (u godinama):</strong> {{ tool.garancija_u_godinama }}</p>
+        <p><strong>Unikatni kod:</strong> {{ tool.ets_id }}</p>
+        <p><strong>Proizvođač:</strong> {{ tool.id_proizvodjac }}</p>
+        <p><strong>Kategorija:</strong> {{ tool.id_kategorija }}</p>
+        <p><strong>Vrsta izdavanja:</strong> {{ tool.id_tip_izdavanja }}</p>
+        <p><strong>Status:</strong> {{ tool.id_status }}</p>
+        <p><strong>Vrijednost (u KM):</strong> {{ tool.vrijednost }}</p>
         <img *ngIf="imageUrl" [src]="imageUrl" alt="Tool Image" style="width: 450px; height: auto; object-fit: cover; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
       </div>
     </div>
@@ -84,7 +84,7 @@
     <li [class.active]="selectedMenu === 'Baždarenje'" (click)="selectedMenu = 'Baždarenje'">
       <a href="javascript:void(0)">Baždarenja</a>
     </li>
-    <li [class.active]="selectedMenu === 'Servisi'" (click)="selectedMenu = 'Servisi'; loadServisiList(tool?.ets_id)">
+    <li [class.active]="selectedMenu === 'Servisi'" (click)="selectedMenu = 'Servisi'; loadServisiList(tool.ets_id)">
       <a href="javascript:void(0)">Servisi</a>
     </li>
     <!-- <li [class.active]="selectedMenu === 'Finansije'" (click)="selectedMenu = 'Finansije'">
